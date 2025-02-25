@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>星星的故事 - 给柯叶子鑫的信</title>
     <style>
-        html, body {
+        html， body {
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -22,11 +22,11 @@
         body {
             background: linear-gradient(135deg, #0f1729 0%, #1a1b4b 100%);
             color: #fff;
-            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-family: "PingFang SC"， "Microsoft YaHei"， sans-serif;
             min-height: 100vh;
         }
 
-        .stars {
+        。stars {
             position: fixed;
             top: 0;
             left: 0;
@@ -37,30 +37,30 @@
             transform: translateZ(0);
         }
 
-        .container {
-            width: min(800px, 100%);
+        。container {
+            width: min(800px， 100%);
             margin: 0 auto;
             padding: 2rem;
             position: relative;
             z-index: 1;
         }
 
-        .letter {
-            background: rgba(255, 255, 255, 0.05);
+        。letter {
+            background: rgba(255， 255， 255， 0.05);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
             margin: 2rem 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0， 0， 0， 0.1);
+            border: 1px solid rgba(255， 255， 255， 0.1);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 1s ease forwards;
-            will-change: transform, opacity;
+            will-change: transform， opacity;
         }
 
-        .title {
+        。title {
             font-size: 2rem;
             margin-bottom: 2rem;
             text-align: center;
@@ -75,23 +75,23 @@
             transform: translateY(20px);
             animation: fadeIn 1s ease forwards;
             animation-delay: calc(var(--delay) * 0.2s);
-            will-change: transform, opacity;
+            will-change: transform， opacity;
         }
 
-        .signature {
+        。signature {
             text-align: right;
             margin-top: 3rem;
             font-style: italic;
         }
 
         @keyframes fadeIn {
-            to {
+            到 {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .shooting-star {
+        。shooting-star {
             position: fixed;
             height: 2px;
             pointer-events: none;
@@ -100,18 +100,18 @@
             will-change: transform;
         }
 
-        .shooting-star::before {
+        。shooting-star::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100px;
             height: 2px;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            background: linear-gradient(到 right， rgba(255， 255， 255， 0)， rgba(255， 255， 255， 1));
             transform-origin: left;
         }
 
-        .shooting-star::after {
+        。shooting-star::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -125,15 +125,15 @@
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
+            0%， 100% { opacity: 0.3; }
             50% { opacity: 1; }
         }
 
         @media (max-width: 600px) {
-            .letter {
+            。letter {
                 padding: 2rem;
             }
-            .title {
+            。title {
                 font-size: 1.5rem;
             }
         }
@@ -173,7 +173,7 @@
 
     <script>
         // 使用 requestAnimationFrame 优化性能
-        const RAF = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
+        const RAF = window。requestAnimationFrame || window。webkitRequestAnimationFrame || window。mozRequestAnimationFrame || window。msRequestAnimationFrame;
         let isCreatingStars = false;
 
         // 创建星星背景
@@ -181,67 +181,67 @@
             if (isCreatingStars) return;
             isCreatingStars = true;
 
-            const stars = document.querySelector('.stars');
-            stars.innerHTML = ''; // 清除现有星星
+            const stars = document。querySelector('.stars');
+            stars。innerHTML = ''; // 清除现有星星
             const count = 300;
             
-            const fragment = document.createDocumentFragment();
+            const fragment = document。createDocumentFragment();
             for (let i = 0; i < count; i++) {
-                const star = document.createElement('div');
-                star.style.cssText = `
+                const star = document。createElement('div');
+                star。style。cssText = `
                     position: absolute;
-                    width: ${Math.random() * 2 + 1}px;
-                    height: ${Math.random() * 2 + 1}px;
+                    width: ${Math。random() * 2 + 1}px;
+                    height: ${Math。random() * 2 + 1}px;
                     background: #fff;
                     border-radius: 50%;
-                    left: ${Math.random() * 100}%;
-                    top: ${Math.random() * 100}%;
-                    animation: twinkle ${Math.random() * 4 + 2}s infinite;
+                    left: ${Math。random() * 100}%;
+                    top: ${Math。random() * 100}%;
+                    animation: twinkle ${Math。random() * 4 + 2}s infinite;
                     transform: translateZ(0);
                 `;
-                fragment.appendChild(star);
+                fragment。appendChild(star);
             }
-            stars.appendChild(fragment);
+            stars。appendChild(fragment);
             isCreatingStars = false;
         }
 
         // 优化的流星创建函数
         function createShootingStar() {
-            const star = document.createElement('div');
-            star.className = 'shooting-star';
+            const star = document。createElement('div');
+            star。className = 'shooting-star';
             
-            const startFromTop = Math.random() > 0.5;
-            const startX = startFromTop ? Math.random() * window.innerWidth : -100;
-            const startY = startFromTop ? -100 : Math.random() * (window.innerHeight / 2);
+            const startFromTop = Math。random() > 0.5;
+            const startX = startFromTop ? Math。random() * window。innerWidth : -100;
+            const startY = startFromTop ? -100 : Math。random() * (window。innerHeight / 2);
             
-            const endX = startX + (Math.random() * 1000 + 500);
-            const endY = startY + (Math.random() * 800 + 400);
+            const endX = startX + (Math。random() * 1000 + 500);
+            const endY = startY + (Math。random() * 800 + 400);
             
-            const angle = Math.atan2(endY - startY, endX - startX) * (180 / Math.PI);
+            const angle = Math。atan2(endY - startY， endX - startX) * (180 / Math。PI);
             
-            star.style.cssText = `
+            star。style。cssText = `
                 left: ${startX}px;
                 top: ${startY}px;
                 transform: rotate(${angle}deg) translateZ(0);
             `;
             
-            document.body.appendChild(star);
+            document。body。appendChild(star);
             
-            const animation = star.animate([
+            const animation = star。animate([
                 { 
-                    transform: `rotate(${angle}deg) translateX(0) translateZ(0)`,
+                    transform: `rotate(${angle}deg) translateX(0) translateZ(0)`，
                     opacity: 1 
-                },
+                }，
                 { 
-                    transform: `rotate(${angle}deg) translateX(${Math.hypot(endX - startX, endY - startY)}px) translateZ(0)`,
+                    transform: `rotate(${angle}deg) translateX(${Math。hypot(endX - startX， endY - startY)}px) translateZ(0)`，
                     opacity: 0 
                 }
-            ], {
-                duration: 1500,
+            ]， {
+                duration: 3000，
                 easing: 'linear'
             });
             
-            animation.onfinish = () => star.remove();
+            animation。onfinish = () => star。remove();
         }
 
         // 优化的多流星创建函数
@@ -250,32 +250,32 @@
             if (isCreatingShootingStars) return;
             isCreatingShootingStars = true;
 
-            const count = Math.floor(Math.random() * 3) + 1;
+            const count = Math。floor(Math。random() * 3) + 1;
             for (let i = 0; i < count; i++) {
                 setTimeout(() => {
                     RAF(() => createShootingStar());
-                }, i * 200);
+                }， i * 200);
             }
 
             setTimeout(() => {
                 isCreatingShootingStars = false;
-            }, count * 200);
+            }， count * 200);
         }
 
         // 优化的流星调度函数
         function scheduleNextShootingStars() {
-            const delay = 800 + Math.random() * 1200;
+            const delay = 1500 + Math。random() * 1500;
             setTimeout(() => {
                 RAF(() => {
                     createMultipleShootingStars();
                     scheduleNextShootingStars();
                 });
-            }, delay);
+            }， delay);
         }
 
         // 页面加载和调整大小时重新创建星星
-        window.addEventListener('load', createStars);
-        window.addEventListener('resize', () => {
+        window。addEventListener('load'， createStars);
+        window。addEventListener('resize'， () => {
             RAF(createStars);
         });
 
@@ -285,11 +285,11 @@
 
         // 优化滚动动画
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
+            entries。forEach(entry => {
+                if (entry。isIntersecting) {
                     RAF(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        entry。target。style。opacity = '1';
+                        entry。target。style。transform = 'translateY(0)';
                     });
                 }
             });
