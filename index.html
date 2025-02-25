@@ -244,23 +244,8 @@
             animation。onfinish = () => star。remove();
         }
 
-        // 优化的多流星创建函数
-        let isCreatingShootingStars = false;
-        function createMultipleShootingStars() {
-            if (isCreatingShootingStars) return;
-            isCreatingShootingStars = true;
 
-            const count = Math。floor(Math。random() * 3) + 1;
-            for (let i = 0; i < count; i++) {
-                setTimeout(() => {
-                    RAF(() => createShootingStar());
-                }， i * 200);
-            }
 
-            setTimeout(() => {
-                isCreatingShootingStars = false;
-            }， count * 200);
-        }
 
         // 优化的流星调度函数
         function scheduleNextShootingStars() {
@@ -295,7 +280,7 @@
             });
         });
 
-        document.querySelectorAll('p').forEach(p => observer.observe(p));
+        document。querySelectorAll('p')。forEach(p => observer。observe(p));
     </script>
 </body>
 </html>
